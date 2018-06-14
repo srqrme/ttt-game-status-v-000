@@ -16,8 +16,8 @@ WIN_COMBINATIONS = [
 ]
 
 def won?(board)
-  WIN_COMBINATIONS.detect do |win_move|
-    board[win_move[0]] == board[win_move[1]] && board[win_move[1]] == board[win_move[2]] && position_taken?(board, win_move[0])
+  WIN_COMBINATIONS.detect do |win_position|
+    board[win_position[0]] == board[win_position[1]] && board[win_position[1]] == board[win_position[2]] && position_taken?(board, win_position[0])
   end
 end
 
@@ -34,7 +34,7 @@ def over?(board)
 end
 
 def winner(board)
-  if win_move = won?(board)
-    board[win_move[0]]
+  if winning_move = won?(board)
+    board[winning_move[0]]
   end
 end
